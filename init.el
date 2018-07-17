@@ -53,39 +53,6 @@
 ;; Javascript preferences
 (setq js-indent-level 4)
 
-;; Markdown support
-(add-to-list 'load-path "~/.emacs.d/modes")
-(setq markdown-command "/Users/ronaldo/Applications/bin/markdown")
-
-;; Autoload options
-(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; JADE support
-(require 'sws-mode)
-(require 'jade-mode)
-(autoload 'sws-mode "sws-mode")
-(autoload 'jade-mode "jade-mode")
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
-
-;; Smalltalk mode
-;(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/gnu-smalltalk")
-;(require 'smalltalk-mode)
-;(require 'gst-mode)
-;(push '("\\.st\\'" . smalltalk-mode) auto-mode-alist)
-
-;; SCSS support
-;;(require 'scss-mode)
-;;(autoload 'scss-mode "scss-mode")
-;;(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
-
-;; SASS mode
-;;(require 'sass-mode)
-;;(add-to-list 'auto-mode-alist '("\\.sass\\'" . sass-mode))
-
 ;; Modes
 (auto-fill-mode 1)
 
