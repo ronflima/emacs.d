@@ -1,5 +1,5 @@
 ;; Customizations
-;; Author: Ronaldo F. Lima <ronaldo@nineteen.com.br>
+;; Author: Ronaldo F. Lima <ronaldo@chicletemkt.com>
 
 ;; Site lisp
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
@@ -81,7 +81,7 @@
 (setq buffer-file-coding-system 'utf-8)
 
 ;; I prefer the scroll bar on the right side.
-;;(set-scroll-bar-mode 'right)
+(set-scroll-bar-mode 'right)
 
 (setq inhibit-startup-message t)
 
@@ -93,7 +93,7 @@
 (global-set-key "%"  'match-paren)
 (global-set-key [f2] 'shell)
 (global-set-key [f3] 'hs-minor-mode)
-(global-set-key [f4] 'git-status)
+(global-set-key [f4] 'vc-dir)
 (global-set-key [f6] 'other-window)
 (global-set-key [f7] 'compile)
 (global-set-key [M-down] 'end-of-buffer)
@@ -124,7 +124,7 @@
     (markdown-mode+ markdown-mode csv-mode csv csv-nav docker-compose-mode docker ssh emacsql-sqlite emacsql-mysql emacsql-psql dockerfile-mode swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils jump inf-mongo gitty git-command git gist)))
  '(toolbar-visible-p nil)
  '(truncate-lines nil)
- '(user-mail-address "ronaldo@nineteen.com.br")
+ '(user-mail-address "ronaldo@chicletemkt.com")
  '(visible-bell t))
 (prefer-coding-system 'utf-8)
 (tool-bar-mode 0)
@@ -141,13 +141,6 @@
 ;; Hooks
 ;; Make hideshow minor mode always active for all program modes
 (add-hook 'prog-mode-hook #'(lambda () (hs-minor-mode t)))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
