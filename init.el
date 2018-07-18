@@ -65,7 +65,12 @@
 (global-auto-revert-mode 1)
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
-(set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 145 :weight 'book)
+(cond
+ ((string-equal system-type "darwin")
+  (set-face-attribute 'default nil :family "Menlo" :height 145 :weight 'normal))
+ ((string-equal system-type "gnu/linux")
+  (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 145 :weight 'book))
+ )
 (setq mac-allow-anti-aliasing t) 
 (set-face-foreground 'default "green")
 (set-face-background 'default "black")
