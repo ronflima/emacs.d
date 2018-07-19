@@ -1,4 +1,4 @@
-;; Customizations
+;; Emacs Customizations
 ;; Author: Ronaldo F. Lima <ronaldo@chicletemkt.com>
 
 ;; Site lisp
@@ -10,9 +10,34 @@
              '("melpa" . "http://melpa.org/packages/"))
 (when (< emacs-major-version 24)
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
+(package-initialize)
 
+;; Global variables
+(custom-set-variables
+ '(case-fold-search t)
+ '(column-number-mode 1)
+ '(current-language-environment "Latin-1")
+ '(default-input-method "latin-1-prefix")
+ '(default-tab-width 4 t)
+ '(dired-use-ls-dired nil)
+ '(fill-column 80)
+ '(global-font-lock-mode t nil (font-lock))
+ '(gutter-buffers-tab-visible-p nil)
+ '(line-number-mode 1)
+ '(linum-format " %5i ")
+ '(menu-bar-mode t)
+ '(modeline-3d-p nil)
+ '(nxml-section-element-name-regexp
+   "article\\|\\(sub\\)*section\\|chapter\\|div\\|appendix\\|part\\|preface\\|reference\\|simplesect\\|bibliography\\|bibliodiv\\|glossary\\|glossdiv\\|methodResponse")
+ '(package-selected-packages
+   (quote
+    (markdown-mode+ markdown-mode csv-mode csv csv-nav docker-compose-mode docker ssh emacsql-sqlite emacsql-mysql emacsql-psql dockerfile-mode swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils jump inf-mongo gitty git-command git gist)))
+ '(toolbar-visible-p nil)
+ '(truncate-lines nil)
+ '(user-mail-address "ronaldo@chicletemkt.com")
+ '(visible-bell t))
 (put 'erase-buffer 'disabled nil)
+
 ;; No tabs!
 (setq-default indent-tabs-mode nil)
 (setq display-time-format "%H:%M:%S")
@@ -31,7 +56,6 @@
                           ("\\.sql$" . skel-sql-file)))
 
 ;; Web Mode
-
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -56,9 +80,6 @@
 ;; Modes
 (auto-fill-mode 1)
 
-;; EDE mode
-(global-ede-mode t)
-
 ;; Colors and fonts
 (turn-on-font-lock)       
 (setq make-backup-files nil) 
@@ -67,13 +88,14 @@
 (setq ring-bell-function 'ignore)
 (cond
  ((string-equal system-type "darwin")
-  (set-face-attribute 'default nil :family "Menlo" :height 145 :weight 'normal))
+  (set-face-attribute 'default nil :family "Menlo" :height 145 :weight 'normal)
+  (setq mac-allow-anti-aliasing t))
  ((string-equal system-type "gnu/linux")
   (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 145 :weight 'book))
  )
-(setq mac-allow-anti-aliasing t) 
 (set-face-foreground 'default "green")
 (set-face-background 'default "black")
+
 ;; Visuals
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(width . 120))
@@ -103,38 +125,11 @@
 (global-set-key [f7] 'compile)
 (global-set-key [M-down] 'end-of-buffer)
 (global-set-key [M-up] 'beginning-of-buffer)
-;; Global variables
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(case-fold-search t)
- '(column-number-mode 1)
- '(current-language-environment "Latin-1")
- '(default-input-method "latin-1-prefix")
- '(default-tab-width 4 t)
- '(dired-use-ls-dired nil)
- '(fill-column 80)
- '(global-font-lock-mode t nil (font-lock))
- '(gutter-buffers-tab-visible-p nil)
- '(line-number-mode 1)
- '(linum-format " %5i ")
- '(menu-bar-mode t)
- '(modeline-3d-p nil)
- '(nxml-section-element-name-regexp
-   "article\\|\\(sub\\)*section\\|chapter\\|div\\|appendix\\|part\\|preface\\|reference\\|simplesect\\|bibliography\\|bibliodiv\\|glossary\\|glossdiv\\|methodResponse")
- '(package-selected-packages
-   (quote
-    (markdown-mode+ markdown-mode csv-mode csv csv-nav docker-compose-mode docker ssh emacsql-sqlite emacsql-mysql emacsql-psql dockerfile-mode swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils jump inf-mongo gitty git-command git gist)))
- '(toolbar-visible-p nil)
- '(truncate-lines nil)
- '(user-mail-address "ronaldo@chicletemkt.com")
- '(visible-bell t))
 (prefer-coding-system 'utf-8)
 (tool-bar-mode 0)
 (cd "~/")
 (setq python-indent-offset 4)
+
 ;; Match parenthesis function
 (defun match-paren (arg)
   "Go to the matching parenthesis if on parenthesis otherwise insert %."
@@ -165,5 +160,4 @@
          (let ((fn (dired-get-file-for-visit)))
            (message "Opening `%s'" fn)
            (start-process "default-app" nil "open" fn))))))
-
 
