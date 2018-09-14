@@ -7,3 +7,8 @@ then
     . $HOME/.bashrc
 fi
 clear
+
+if [ -d $PWD/env ]
+then
+    . env/bin/activate
+fi
