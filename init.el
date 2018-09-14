@@ -14,6 +14,10 @@
 
 ;; Global variables
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(case-fold-search t)
  '(column-number-mode 1)
  '(current-language-environment "Latin-1")
@@ -161,3 +165,9 @@
            (message "Opening `%s'" fn)
            (start-process "default-app" nil "open" fn))))))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
