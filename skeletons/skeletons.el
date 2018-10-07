@@ -8,3 +8,4 @@
 (load-library "swift.el")
 (load-library "sql-files.el")
 (load-library "html.el")
+(load-library "python.el")
