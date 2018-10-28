@@ -35,7 +35,7 @@
    "article\\|\\(sub\\)*section\\|chapter\\|div\\|appendix\\|part\\|preface\\|reference\\|simplesect\\|bibliography\\|bibliodiv\\|glossary\\|glossdiv\\|methodResponse")
  '(package-selected-packages
    (quote
-    (markdown-mode+ markdown-mode csv-mode csv csv-nav docker-compose-mode docker ssh emacsql-sqlite emacsql-mysql emacsql-psql dockerfile-mode swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils jump inf-mongo gitty git-command git gist)))
+    (noxml-fold python markdown-mode+ markdown-mode csv-mode csv csv-nav docker-compose-mode docker ssh emacsql-sqlite emacsql-mysql emacsql-psql dockerfile-mode swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils jump inf-mongo gitty git-command git gist)))
  '(toolbar-visible-p nil)
  '(truncate-lines nil)
  '(user-mail-address "ronaldo@chicletemkt.com")
@@ -171,3 +171,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; ido mode
+(require 'ido)
+(ido-mode t)
