@@ -77,7 +77,7 @@
   > "// furnished to do so, subject to the following conditions:" \n _ \n
   > "// The above copyright notice and this permission notice shall be included in all" \n
   > "// copies or substantial portions of the Software." \n _ \n
-  > "// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR" \n
+  > "// THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR" \n
   > "// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY," \n
   > "// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE" \n
   > "// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER" \n
