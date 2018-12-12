@@ -67,7 +67,9 @@
 (define-skeleton mit-js-file
   "Open-source javascript file"
   > "// -*-javascript-*-" \n
-  > "// MIT License" \n \n
+  > "//" \n
+  > "// MIT License" \n
+  > "//" \n
   > "// Copyright (c) " (format-time-string "%Y") " Chiclete Marketing" \n
   > "//" \n
   > "// Permission is hereby granted, free of charge, to any person obtaining a copy" \n
