@@ -93,5 +93,5 @@
   > "// ## Purpose" \n
   > "// " (skeleton-read "This file purpose: ") \n
   > "//" \n _ \n 
-  > "'use strict'" \n _ \n
+  > "'use strict'" \n
   )
