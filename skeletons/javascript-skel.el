@@ -90,8 +90,7 @@
   > "// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE" \n
   > "// SOFTWARE." \n
   > "//" \n
-  > "// ## Purpose" \n
-  > "// " (skeleton-read "This file purpose: ") \n
+  > "// Purpose: " _ (skeleton-read "This file purpose: ") \n
   > "//" \n _ \n 
   > "'use strict'" \n
   )
