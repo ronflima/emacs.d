@@ -64,7 +64,7 @@
   > "module.exports = router"\n
   )
 
-(define-skeleton mit-js-file
+(define-skeleton js-mit
   "Open-source javascript file"
   > "// -*-javascript-*-" \n
   > "//" \n
