@@ -9,7 +9,7 @@ Also, my <init.el> will set your emacs to my personal preferences on emacs.
 > **Important!** 
 >
 > You may need emacs 25 or higher, since it uses packages heavily. Emacs 24 and
-> earlier don't support `package-install-selected-packages` instruction.
+> earlier doesn't support `package-install-selected-packages` instruction.
 
 Hope it help you. 
 
