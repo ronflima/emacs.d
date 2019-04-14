@@ -35,7 +35,8 @@
    "article\\|\\(sub\\)*section\\|chapter\\|div\\|appendix\\|part\\|preface\\|reference\\|simplesect\\|bibliography\\|bibliodiv\\|glossary\\|glossdiv\\|methodResponse")
  '(package-selected-packages
    (quote
-    (auto-complete noxml-fold python markdown-mode+ markdown-mode csv-mode csv csv-nav docker-compose-mode docker ssh emacsql-sqlite emacsql-mysql emacsql-psql dockerfile-mode swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils jump inf-mongo gitty git-command git gist)))
+    (virtualenv virtualenvwrapper jedi projectile auto-complete noxml-fold python markdown-mode+ markdown-mode csv-mode csv csv-nav docker-compose-mode docker ssh emacsql-sqlite emacsql-mysql emacsql-psql dockerfile-mode swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils jump inf-mongo gitty git-command git gist)))
+ '(send-mail-function (quote smtpmail-send-it))
  '(toolbar-visible-p nil)
  '(truncate-lines nil)
  '(user-mail-address "ronaldo@chicletemkt.com")
@@ -95,7 +96,7 @@
   (set-face-attribute 'default nil :family "Menlo" :height 145 :weight 'normal)
   (setq mac-allow-anti-aliasing t))
  ((string-equal system-type "gnu/linux")
-  (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 145 :weight 'book))
+  (set-face-attribute 'default nil :family "Noto Mono" :height 145 :weight 'regular))
  )
 (set-face-foreground 'default "green")
 (set-face-background 'default "black")
@@ -157,13 +158,13 @@
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
 ;; macOS Finder Open support
-(eval-after-load "dired"
-  '(progn
-     (define-key dired-mode-map (kbd "z")
-       (lambda () (interactive)
-         (let ((fn (dired-get-file-for-visit)))
-           (message "Opening `%s'" fn)
-           (start-process "default-app" nil "open" fn))))))
+;(eval-after-load "dired"
+;  '(progn
+;     (define-key dired-mode-map (kbd "z")
+;       (lambda () (interactive)
+;         (let ((fn (dired-get-file-for-visit)))
+;           (message "Opening `%s'" fn)
+;           (start-process "default-app" nil "open" fn))))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
