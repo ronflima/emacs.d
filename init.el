@@ -82,6 +82,7 @@
 (setq js-indent-level 4)
 
 ;; Python Preferences
+(require 'virtualenvwrapper)
 (venv-initialize-interactive-shells) 
 (venv-initialize-eshell)
 (setq python-indent-offset 4)
