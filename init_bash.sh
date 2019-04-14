@@ -6,9 +6,7 @@ if [ -f $HOME/.bashrc ]
 then
     . $HOME/.bashrc
 fi
-clear
-
 if [ -d $PWD/env ]
 then
-    . env/bin/activate
+    . $PWD/env/bin/activate
 fi

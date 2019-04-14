@@ -1,9 +1,6 @@
 ;; Emacs Customizations
 ;; Author: Ronaldo F. Lima <ronaldo@chicletemkt.com>
 
-;; Site lisp
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
-
 ;; MELPA support
 (require 'package)
 (add-to-list 'package-archives
@@ -45,6 +42,8 @@
 
 ;; No tabs!
 (setq-default indent-tabs-mode nil)
+
+;; Time formts
 (setq display-time-format "%H:%M:%S")
 (display-time-mode 1)
 
@@ -82,10 +81,15 @@
 ;; Javascript preferences
 (setq js-indent-level 4)
 
+;; Python Preferences
+(venv-initialize-interactive-shells) 
+(venv-initialize-eshell)
+(setq python-indent-offset 4)
+
 ;; Modes
 (auto-fill-mode 1)
 
-;; Colors and fonts
+;; Visuals
 (turn-on-font-lock)       
 (setq make-backup-files nil) 
 (global-auto-revert-mode 1)
@@ -100,10 +104,10 @@
  )
 (set-face-foreground 'default "green")
 (set-face-background 'default "black")
-
-;; Visuals
 (add-to-list 'default-frame-alist '(height . 40))
 (add-to-list 'default-frame-alist '(width . 120))
+(tool-bar-mode 0)
+(setq inhibit-startup-message t)
 
 ;; Encodings
 (prefer-coding-system       'utf-8)
@@ -114,8 +118,6 @@
 
 ;; I prefer the scroll bar on the right side.
 (set-scroll-bar-mode 'right)
-
-(setq inhibit-startup-message t)
 
 ;; Abbrev settings
 (setq abbrev-file-name "~/.emacs.d/abbrevs.el")
@@ -130,12 +132,10 @@
 (global-set-key [f7] 'compile)
 (global-set-key [M-down] 'end-of-buffer)
 (global-set-key [M-up] 'beginning-of-buffer)
-(prefer-coding-system 'utf-8)
-(tool-bar-mode 0)
-(cd "~/")
-(setq python-indent-offset 4)
 
 ;; Match parenthesis function
+;; Credit: Dirk Heumann routine, got in 2003
+;; I still use it dude!
 (defun match-paren (arg)
   "Go to the matching parenthesis if on parenthesis otherwise insert %."
   (interactive "p")
@@ -157,14 +157,18 @@
 (setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
-;; macOS Finder Open support
-;(eval-after-load "dired"
-;  '(progn
-;     (define-key dired-mode-map (kbd "z")
-;       (lambda () (interactive)
-;         (let ((fn (dired-get-file-for-visit)))
-;           (message "Opening `%s'" fn)
-;           (start-process "default-app" nil "open" fn))))))
+;; macOS specific preferences
+(cond
+ ((string-equal system-type "darwin")
+  (eval-after-load "dired"
+    '(progn
+     (define-key dired-mode-map (kbd "z")
+       (lambda () (interactive)
+         (let ((fn (dired-get-file-for-visit)))
+           (message "Opening `%s'" fn)
+           (start-process "default-app" nil "open" fn))))))
+  )
+ )
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
