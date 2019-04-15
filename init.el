@@ -32,7 +32,11 @@
    "article\\|\\(sub\\)*section\\|chapter\\|div\\|appendix\\|part\\|preface\\|reference\\|simplesect\\|bibliography\\|bibliodiv\\|glossary\\|glossdiv\\|methodResponse")
  '(package-selected-packages
    (quote
-    (virtualenv virtualenvwrapper jedi projectile auto-complete noxml-fold python markdown-mode+ markdown-mode csv-mode csv csv-nav docker-compose-mode docker ssh emacsql-sqlite emacsql-mysql emacsql-psql dockerfile-mode swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils jump inf-mongo gitty git-command git gist)))
+    (yaml-mode auto-complete-c-headers virtualenvwrapper pyenv-mode jedi projectile noxml-fold python markdown-mode+ markdown-mode csv-mode csv csv-nav ssh emacsql-sqlite emacsql-mysql emacsql-psql swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils inf-mongo gitty git-command git gist)))
+ '(safe-local-variable-values
+   (quote
+    ((eval setenv "GROODME_DEBUG" "TRUE")
+     (eval venv-workon "groodme"))))
  '(send-mail-function (quote smtpmail-send-it))
  '(toolbar-visible-p nil)
  '(truncate-lines nil)
@@ -83,8 +87,9 @@
 
 ;; Python Preferences
 (require 'virtualenvwrapper)
-(venv-initialize-interactive-shells) 
+(venv-initialize-interactive-shells)
 (venv-initialize-eshell)
+(add-hook 'python-mode-hook 'jedi:setup)
 (setq python-indent-offset 4)
 
 ;; Modes
@@ -178,13 +183,13 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; ido mode
-(require 'ido)
-(ido-mode t)
-
 ;; auto complete
 (require 'auto-complete)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (require 'auto-complete-config)
 (ac-config-default)
 (global-auto-complete-mode t)
+
+;; ido mode
+(require 'ido)
+(ido-mode t)
