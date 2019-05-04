@@ -15,3 +15,7 @@ elpa
 
 # Tramp history
 tramp
+ido.last
+./
+.python-environments
+ac-comphist.dat

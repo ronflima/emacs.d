@@ -26,13 +26,13 @@
  '(gutter-buffers-tab-visible-p nil)
  '(line-number-mode 1)
  '(linum-format " %5i ")
- '(menu-bar-mode t)
+ '(menu-bar-mode nil)
  '(modeline-3d-p nil)
  '(nxml-section-element-name-regexp
    "article\\|\\(sub\\)*section\\|chapter\\|div\\|appendix\\|part\\|preface\\|reference\\|simplesect\\|bibliography\\|bibliodiv\\|glossary\\|glossdiv\\|methodResponse")
  '(package-selected-packages
    (quote
-    (yaml-mode auto-complete-c-headers virtualenvwrapper pyenv-mode jedi projectile noxml-fold python markdown-mode+ markdown-mode csv-mode csv csv-nav ssh emacsql-sqlite emacsql-mysql emacsql-psql swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils inf-mongo gitty git-command git gist)))
+    (django-mode sudoku py-autopep8 yaml-mode auto-complete-c-headers virtualenvwrapper pyenv-mode jedi projectile noxml-fold python markdown-mode+ markdown-mode csv-mode csv csv-nav ssh emacsql-sqlite emacsql-mysql emacsql-psql swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils inf-mongo gitty git-command git gist)))
  '(safe-local-variable-values
    (quote
     ((eval setenv "GROODME_DEBUG" "TRUE")
@@ -40,6 +40,7 @@
  '(send-mail-function (quote smtpmail-send-it))
  '(toolbar-visible-p nil)
  '(truncate-lines nil)
+ '(user-full-name "Ronaldo Faria Lima")
  '(user-mail-address "ronaldo@chicletemkt.com")
  '(visible-bell t))
 (put 'erase-buffer 'disabled nil)
@@ -48,7 +49,8 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Time formts
-(setq display-time-format "%H:%M:%S")
+(setq display-time-format "%H:%M")
+(setq display-time-default-load-average nil)
 (display-time-mode 1)
 
 ;; Skelletons
@@ -91,6 +93,8 @@
 (venv-initialize-eshell)
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq python-indent-offset 4)
+(require 'py-autopep8)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
 ;; Modes
 (auto-fill-mode 1)
@@ -192,4 +196,22 @@
 
 ;; ido mode
 (require 'ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
 (ido-mode t)
+
+;; Sudoku
+(add-to-list 'auto-mode-alist '("\\.sdk\\'" . sudoku-mode))
+
+;; Insert current date function
+;; Reference: https://www.emacswiki.org/emacs/InsertingTodaysDate
+(require 'calendar)
+(defun insdate-insert-current-date (&optional omit-day-of-week-p)
+  "Insert today's date using the current locale.
+  With a prefix argument, the date is inserted without the day of
+  the week."
+  (interactive "P*")
+  (insert (calendar-date-string (calendar-current-date) nil
+                                omit-day-of-week-p)))
+
+(global-set-key "\C-x\M-d" `insdate-insert-current-date)
