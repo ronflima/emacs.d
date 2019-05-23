@@ -35,7 +35,10 @@
     (django-mode sudoku py-autopep8 yaml-mode auto-complete-c-headers virtualenvwrapper pyenv-mode jedi projectile noxml-fold python markdown-mode+ markdown-mode csv-mode csv csv-nav ssh emacsql-sqlite emacsql-mysql emacsql-psql swift-mode lex json-mode graphviz-dot-mode web-mode scss-mode sass-mode rvm ruby-dev ruby-compilation realgud-rdb2 org omniref list-utils inf-mongo gitty git-command git gist)))
  '(safe-local-variable-values
    (quote
-    ((eval setenv "GROODME_DEBUG" "TRUE")
+    ((eval venv-workon "image-curator")
+     (auto-insert-alist
+      ("\\.py$" . python-chtmkt))
+     (eval setenv "GROODME_DEBUG" "TRUE")
      (eval venv-workon "groodme"))))
  '(send-mail-function (quote smtpmail-send-it))
  '(toolbar-visible-p nil)
